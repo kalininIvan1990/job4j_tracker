@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ShopTest {
+
     @Test
     public void whenLastNull() {
         Product[] products = new Product[5];
