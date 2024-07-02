@@ -21,10 +21,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()),
-                "edited item"
-        };
+        String[] answers = {String.valueOf(item.getId()), "edited item"};
         StartUI.replaceItem(new MockInput(answers), tracker);
         Item edited = tracker.findById(item.getId());
         assertThat(edited.getName()).isEqualTo("edited item");
@@ -35,7 +32,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
-        String[] answers = {String.valueOf(item.getId())};
+        String[] answers = {String.valueOf(item.getId()), "deleted item"};
         StartUI.deleteItem(new MockInput(answers), tracker);
         Item deleted = tracker.findById(item.getId());
         assertThat(deleted).isNull();
