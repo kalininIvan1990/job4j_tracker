@@ -7,6 +7,7 @@ public class ElementNotFoundException extends Exception {
         for (int index = 0; index < value.length; index++) {
             if (key.equals(value[index])) {
                 result = index;
+                break;
             }
         }
         if (result == -1) {
