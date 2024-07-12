@@ -81,7 +81,6 @@ class PasswordValidatorTest {
         assertThat(exception.getMessage()).isEqualTo(expected);
     }
 
-    @Disabled
     @Test
     void whenPasswordNotContainSpecialSymbol() {
         String password = "Ln2pmrTY12";
