@@ -24,7 +24,6 @@ public class Tracker {
         for (Item item : items) {
             if (key.equals(item.getName())) {
                 result.add(item);
-                break;
             }
         }
         return result;
