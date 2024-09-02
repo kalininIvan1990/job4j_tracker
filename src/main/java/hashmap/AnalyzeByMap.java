@@ -1,6 +1,7 @@
 package hashmap;
 
 import java.util.*;
+import java.util.function.BiFunction;
 
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
@@ -29,9 +30,10 @@ public class AnalyzeByMap {
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         Map<String, Integer> map = new LinkedHashMap<>();
+        BiFunction<Integer, Integer, Integer> function = Integer::sum;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
+                map.merge(subject.name(), subject.score(), function);
             }
         }
         List<Label> list = new ArrayList<>();
@@ -58,8 +60,7 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.put(subject.name(), map.getOrDefault(subject.name(), 0)
-                        + subject.score());
+                map.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
         List<Label> list = new ArrayList<>();
